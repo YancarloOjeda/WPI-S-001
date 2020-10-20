@@ -44,9 +44,12 @@ Font_1 = 'Sans'
 
 
 #%%-----------DIRECTORIES------------------------------------------------------
-Dir_Config = '/home/yan/WPI-H-001/Config/'
-Dir_Images = '/home/yan/WPI-H-001/Image/'
-Dir_Projects = '/home/yan/WPI-H-001/Waldenpy/'
+# Dir_Config = '/home/yan/WPI-H-001/Config/'
+# Dir_Images = '/home/yan/WPI-H-001/Image/'
+# Dir_Projects = '/home/yan/WPI-H-001/Waldenpy/'
+Dir_Config = 'C:/Users/yanoj/OneDrive/Documentos/WPI-S-001/Config/'
+Dir_Images = 'C:/Users/yanoj/OneDrive/Documentos/WPI-S-001/Image/'
+Dir_Projects = 'C:/Users/yanoj/OneDrive/Documentos/WPI-S-001/Waldenpy/'
 
 
 #%%-----------GLOBAL VARIABLES------------------------------------------------
