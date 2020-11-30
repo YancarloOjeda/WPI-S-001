@@ -40,7 +40,7 @@ C_Pal6 = (245,245,245)
 C_Pal7 = (70,90,90)
 C_Pal8 = (235,235,235)
 Font_CV = cv2.FONT_HERSHEY_SIMPLEX
-Font_1 = 'Sans'
+Font_1 = 'Arial'
 
 
 #%%-----------DIRECTORIES------------------------------------------------------
@@ -136,7 +136,7 @@ class ToolTip(object):
         tw.wm_geometry("+%d+%d" % (x, y))
         label = Label(tw, text=self.text, justify=LEFT,
                       background="#ffffe0", relief=SOLID, borderwidth=1,
-                      font=("tahoma", "8", "normal"))
+                      font=("tahoma", "12", "normal"))
         label.pack(ipadx=1)
 
     def hidetip(self):
@@ -158,7 +158,9 @@ def CreateToolTip(widget, text):
 root = Tk()
 root.title('WPI-S-001')
 root.geometry(str(width_monitor)+'x'+str(height_monitor-100)+'+0+0') 
+root.iconbitmap(Dir_Images+"Icon.ico")
 root.config(bg = Fun_Rgb(C_Pal3))
+root.resizable(0,0)
 root.isStopped = False
 
 def Detect_WPI():
@@ -170,14 +172,13 @@ def Detect_WPI():
     aux_WPI_4 = 0
     aux_WPI_5 = 0
     aux_WPI_6 = 0
-    
-    
-    
+        
     ##Detecting WPI-1
     for i in range(20):
         try:
             # WPI_1 = Arduino('/dev/ttyACM'+str(i))
-            WPI_1 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+            # WPI_1 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+            WPI_1 = w.Get_WPI_12('COM'+str(i))
             print('1', WPI_1)
             active_WPI_1 = 1
         except:
@@ -190,7 +191,8 @@ def Detect_WPI():
     for i in range(20):
         if i != aux_WPI_1:
             try:
-                WPI_2 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                # WPI_2 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                WPI_1 = w.Get_WPI_12('COM'+str(i))
                 print('2', WPI_1)
                 active_WPI_2 = 1
             except:
@@ -204,7 +206,8 @@ def Detect_WPI():
     for i in range(20):
         if i != aux_WPI_1 and i != aux_WPI_2:
             try:
-                WPI_3 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                # WPI_3 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                WPI_1 = w.Get_WPI_12('COM'+str(i))
                 print('3', WPI_3)
                 active_WPI_3 = 1
             except:
@@ -217,7 +220,8 @@ def Detect_WPI():
     for i in range(20):
         if i != aux_WPI_1 and i != aux_WPI_2 and i != aux_WPI_3:
             try:
-                WPI_4 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                # WPI_4 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                WPI_1 = w.Get_WPI_12('COM'+str(i))
                 print('4', WPI_4)
                 active_WPI_4 = 1
             except:
@@ -230,7 +234,8 @@ def Detect_WPI():
     for i in range(20):
         if i != aux_WPI_1 and i != aux_WPI_2 and i != aux_WPI_3 and i != aux_WPI_4:
             try:
-                WPI_5 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                # WPI_5 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                WPI_1 = w.Get_WPI_12('COM'+str(i))
                 print('5', WPI_5)
                 active_WPI_5 = 1
             except:
@@ -243,7 +248,8 @@ def Detect_WPI():
     for i in range(20):
         if i != aux_WPI_1 and i != aux_WPI_2 and i != aux_WPI_3 and i != aux_WPI_4 and i != aux_WPI_5:
             try:
-                WPI_6 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                # WPI_6 = w.Get_WPI_12('/dev/ttyACM'+str(i))
+                WPI_1 = w.Get_WPI_12('COM'+str(i))
                 print('6', WPI_6)
                 active_WPI_6 = 1
             except:
@@ -1002,7 +1008,7 @@ img6 = PIL.Image.open(Dir_Images+'stopCheckInput.jpg')
 useImg6 = ImageTk.PhotoImage(img6)
 
 
-activeWPIConnection = Button(toolbar, image=useImg1, text="new", width=20, 
+activeWPIConnection = Button(toolbar, image=useImg1, text="new", width=20,  
            command=Detect_WPI)
 activeWPIConnection.pack(side=LEFT, padx=2, pady=2)
 CreateToolTip(activeWPIConnection, text = 'Create WPI connection')
@@ -1101,7 +1107,7 @@ Btn_check_Input_6.place(x=aux_width_monitor*4.5, y=aux_height_monitor*11.7)
 
 
 #%%------------IMAGE WALDEN----------------------------------------------------------
-Img_ventanaInicio_1 = Fun_Size(Dir_Images + '/' +'interfaz-01.png',.4*aux_size)
+Img_ventanaInicio_1 = Fun_Size(Dir_Images + '/' +'interfaz-01.png',.35*aux_size)
 Lbl_ventanaInicio_1 = Label(root, bg = Fun_Rgb(C_Pal3), 
                                     image = Img_ventanaInicio_1)
 Lbl_ventanaInicio_1.place(x=aux_width_monitor*13,y=aux_height_monitor*10.5)
